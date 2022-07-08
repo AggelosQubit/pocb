@@ -1,7 +1,7 @@
 const https   = require('https');
-const fs = require('fs');
-
-var app     = require('express');
+const fs      = require('fs');
+const PORT    = 8000;
+var app       = require('express');
 const options = {
     key: fs.readFileSync('./certs/key.pem'),
     cert: fs.readFileSync('./certs/cert.pem')
@@ -10,6 +10,6 @@ const options = {
 https.createServer(options, (req, res) => {
   res.writeHead(200);
   res.end('hello world\n');
-}).listen(8000);
+}).listen(PORT);
 
-console.log("server running " )
+console.log("server running on :  localhost:"+PORT );
