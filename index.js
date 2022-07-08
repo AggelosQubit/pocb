@@ -9,7 +9,7 @@ const options = {
 
 https.createServer(options, (req, res) => {
   res.writeHead(200);
-  res.end('hello world\n');
+  res.end('Hello World\n');
 }).listen(PORT);
 
 console.log("server running on ATM :  localhost:"+PORT );
