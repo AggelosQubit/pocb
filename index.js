@@ -1,13 +1,17 @@
-const https   = require('https');
-const fs      = require('fs');
-const PORT    = 8000;
-var app       = require('express');
-const options = {
-    key: fs.readFileSync('./certs/key.pem'),
-    cert: fs.readFileSync('./certs/cert.pem')
-};
-https.createServer(options, (req, res) => {
-  res.writeHead(200);
-  res.end('Hello World\n');
-}).listen(PORT);
-console.log("server running on ATM :  localhost:"+PORT );
+const express 	= require('express');
+const app 		= express();
+const port 		= 3000;
+//const path 		= require('path');
+
+app.use(express.static(__dirname + '/public'));
+
+app.set('view engine','ejs');
+app.set('views','./public/views/');
+
+app.get('/', (req, res) => {
+	res.render('POCB');
+})
+app.listen(port, () => {
+  console.log(`Example app on http://localhost:${port}`)
+})
+
